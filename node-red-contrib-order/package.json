@@ -1,0 +1,16 @@
+{
+  "name": "red-contrib-order",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "node-red" : {
+        "nodes": {
+            "order": "order.js"
+        }
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

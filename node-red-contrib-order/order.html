@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('order', {
+        category: 'function',
+        color: '#FFFF00',
+        defaults: {
+            name: { required: true },
+            age: {  required: true },
+            email: {  required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function() {
+            return this.name || "order";
+        },
+        oneditprepare: function () {
+      $('#node-input-name').val(this.name);
+      $('#node-input-age').val(this.age);
+      $('#node-input-email').val(this.email);
+    },
+    oneditsave: function () {
+      this.orderId = $('#node-input-name').val();
+      this.orderDate = $('#node-input-order-age').val();
+      this.requestMethod = $('#node-input-order-email').val();
+    },
+    });
+</script>
+
+<script type="text/html" data-template-name="order">
+    <form id="node-input-form">
+        <div class="form-row">
+            <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+            <input type="text" id="node-input-name" placeholder="Name" value="{{name}}">
+        </div>
+        <div class="form-row">
+            <label for="node-input-age"><i class="fa fa-tag"></i> Age</label>
+            <input type="number" id="node-input-age" placeholder="Age" value="{{age}}">
+        </div>
+        <div class="form-row">
+            <label for="node-input-email"><i class="fa fa-tag"></i> Email</label>
+            <input type="text" id="node-input-email" placeholder="Email" value="{{email}}">
+        </div>
+    </form>
+</script>
+
+<script type="text/html" data-help-name="order">
+    <p>A custom node that performs specific actions related to an order</p>
+</script>
